@@ -18,7 +18,7 @@
     const url = new URL("https://www.tiktok.com/v2/auth/authorize/");
     url.search = new URLSearchParams({
       client_key: key,
-      scope: "user.info.basic,video.upload,video.publish",
+      scope: "user.info.basic,video.upload",
       response_type: "code",
       redirect_uri: "https://mohawhite.github.io/callback/",
       state: crypto.randomUUID(),
