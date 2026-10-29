@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"><link rel="icon" href="/logo.png">
+<title>Connecter TikTok · SAKĪNA</title>
+<meta name="robots" content="noindex">
+</head><body><main>
+<h1>Connecter le compte TikTok</h1>
+<p>Collez la <b>Client key</b> de l'application (portail TikTok for Developers), puis connectez-vous avec le compte <b>@sakina.recite</b>.</p>
+<input id="key" placeholder="Client key" autocomplete="off">
+<button id="go">Se connecter avec TikTok</button>
+<nav><a href="/">Accueil</a><a href="/privacy/">Confidentialité</a><a href="/terms/">Conditions</a><a href="https://www.tiktok.com/@sakina.recite">TikTok</a></nav>
+</main>
+<script>
+  document.getElementById("go").onclick = () => {
+    const key = document.getElementById("key").value.trim();
+    if (!key) return;
+    const url = new URL("https://www.tiktok.com/v2/auth/authorize/");
+    url.search = new URLSearchParams({
+      client_key: key,
+      scope: "user.info.basic,video.upload,video.publish",
+      response_type: "code",
+      redirect_uri: "https://mohawhite.github.io/callback/",
+      state: crypto.randomUUID(),
+    });
+    location.href = url;
+  };
+</script>
+</body></html>

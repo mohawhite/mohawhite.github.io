@@ -1,0 +1,19 @@
+:root { --bg: #000; --fg: #fff; --muted: rgba(255,255,255,.62); --line: rgba(255,255,255,.16); }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 300 17px/1.7 'Jost', system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+a { color: var(--fg); }
+.brand { text-align: center; padding: 40px 0 8px; }
+.brand .ar { font-family: 'Aref Ruqaa', serif; font-size: 88px; line-height: 1.2; }
+.brand .lat { letter-spacing: .6em; margin-right: -.6em; font-size: 18px; }
+.tagline { text-align: center; color: var(--muted); margin: 24px 0 40px; }
+.cta { display: block; width: fit-content; margin: 0 auto; padding: 12px 28px; border: 1px solid var(--fg); border-radius: 999px; text-decoration: none; letter-spacing: .08em; }
+h1 { font-weight: 300; letter-spacing: .04em; font-size: 30px; margin: 0 0 4px; }
+h2 { font-weight: 400; font-size: 19px; margin: 36px 0 6px; }
+.date { color: var(--muted); font-size: 14px; }
+nav { text-align: center; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+nav a { color: var(--muted); margin: 0 10px; }
+.box { border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin: 20px 0; word-break: break-all; }
+code { font-size: 15px; }
+input { width: 100%; padding: 12px; background: #111; color: var(--fg); border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+button { margin-top: 14px; padding: 12px 24px; background: var(--fg); color: var(--bg); border: 0; border-radius: 999px; font: 400 16px 'Jost', sans-serif; cursor: pointer; }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"><link rel="icon" href="/logo.png">
+<title>Connexion TikTok · SAKĪNA</title>
+<meta name="robots" content="noindex">
+</head><body><main>
+<h1>Connexion TikTok</h1>
+<div id="ok" hidden>
+  <p>Autorisation reçue. Copiez ce code et collez-le dans l'action GitHub <b>« TikTok : enregistrer l'autorisation »</b> du dépôt <code>quran-tiktok</code>. Il n'est valable que quelques minutes.</p>
+  <div class="box"><code id="code"></code></div>
+  <button id="copy">Copier le code</button>
+</div>
+<div id="err" hidden><p>Aucun code reçu : <span id="msg"></span></p><p><a href="/connect/">Recommencer la connexion</a></p></div>
+<nav><a href="/">Accueil</a><a href="/privacy/">Confidentialité</a><a href="/terms/">Conditions</a><a href="https://www.tiktok.com/@sakina.recite">TikTok</a></nav>
+</main>
+<script>
+  const p = new URLSearchParams(location.search);
+  const code = p.get("code");
+  if (code) {
+    document.getElementById("ok").hidden = false;
+    document.getElementById("code").textContent = code;
+    document.getElementById("copy").onclick = async (e) => {
+      try { await navigator.clipboard.writeText(code); e.target.textContent = "Copié ✓"; }
+      catch { e.target.textContent = "Sélectionnez le code et copiez-le à la main"; }
+    };
+  } else {
+    document.getElementById("err").hidden = false;
+    document.getElementById("msg").textContent = p.get("error_description") || p.get("error") || "lien ouvert directement.";
+  }
+</script>
+</body></html>
